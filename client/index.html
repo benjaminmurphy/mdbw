@@ -1,0 +1,54 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <base href="/">
+
+    <title>MDBW'16</title>
+
+    <link rel="stylesheet" href="static/bootstrap.css">
+    <link rel="stylesheet" href="static/mongostrap-theme.css">
+    <link rel="stylesheet" href="static/jquery.jsonview.min.css">
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css">
+    <link rel="stylesheet" href="static/main.css">
+  </head>
+
+  <body class="container-fluid" ng-app="mdbw" ng-keypress="$root.checkKeyEvent($event)">
+    <div ng-mapbox></div>
+
+    <div class="statistics" ng-class="$root.queryPanelShown ? 'col-md-10' : 'col-md-4'">
+      <center>
+        <button class="btn btn-info global" type="submit" ng-click="$root.toggleStatisticsPanel()">
+          {{ $root.statisticsPanelShown ? "Hide" : "Show" }}
+        </button>
+        <button class="btn btn-info global" type="submit" ng-click="$root.redirectHome()">
+          Home
+        </button>
+        <button class="btn btn-info global" type="submit" ng-click="$root.toggleQueryPanel()">
+          {{ $root.queryPanelShown ? "Hide" : "Show" }} Query
+        </button>
+      </center>
+
+      <div class="info-container content-scrollable" ng-show="$root.statisticsPanelShown">
+        <div ng-view></div>
+      </div>
+
+      <div class="content-scrollable" ng-show="$root.queryPanelShown">
+        <div id="jsonViewer"></div>
+      </div>
+    </div>
+
+    <script src="https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="static/spin.min.js"></script>
+    <script src="static/angular.js"></script>
+    <script src="static/angular-route.min.js"></script>
+    <script src="static/jquery.jsonview.min.js"></script>
+
+    <script src="static/app.js"></script>
+  </body>
+</html>

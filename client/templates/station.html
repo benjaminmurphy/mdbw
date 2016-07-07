@@ -1,0 +1,29 @@
+<p class="station-desc">
+  {{ station.name }} Station
+</p>
+
+<p class="station-desc">
+  Recent Trips:
+</p>
+
+<ul>
+  <li class="recent-trip" ng-repeat='ride in data.Rides'>
+    <a ng-href="/bike/{{ ::ride.bike }}/{{ ::station._id }}/{{ ::ride.departureTime }}">Bike {{ ::ride.bike }}</a> departed at {{ ::ride.departureTime | date : "h:mm a 'on' EEEE, MMMM d, y" }}.
+  </li>
+</ul>
+
+<div class="chart-wrapper">
+  <div class="chart-title">Bicyclist Age, by Decades</div>
+  <div attr="data.BirthYear" ng-bar-chart></div>
+</div>
+
+<div class="chart-wrapper">
+  <div class="chart-title">Day of Week of Ride</div>
+  <div attr="data.DayOfWeek" ng-bar-chart></div>
+</div>
+
+<div class="chart-wrapper">
+  <div class="chart-title">Start Hour of Ride</div>
+  <div attr="data.StartHour" ng-bar-chart above="true" hover="true" pad="true"></div>
+</div>
+

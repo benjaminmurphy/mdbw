@@ -1,0 +1,14 @@
+{
+  "name": "mdbw-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Benjamin Murphy",
+  "license": "ISC"
+}
